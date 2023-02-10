@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="hopital_consultation_action" model="ir.actions.act_window">
+        <field name="name">consultation</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hopital.consultation</field>
+        <field name="search_view_id" eval="False"/>
+        <field name="view_id" eval="False"/>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+          </p>
+        </field>
+    </record>
+    <record id="hopital_consultation_tree" model="ir.ui.view">
+        <field name="name">hopital.consultation.tree</field>
+        <field name="model">hopital.consultation</field>
+        <field name="arch" type="xml">
+            <tree string="La liste des consultations">
+                <field name="name"/> 
+                <field name="date"/>
+                <field name="date_prochaine_consultation"/>
+            </tree>
+        </field>
+    </record>
+    <record id="hopital_consultation_search" model="ir.ui.view">
+        <field name="model">hopital.consultation</field>
+            <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="date"/>
+            </search>
+        </field>
+    </record>
+    <record id="hopital_consultation_form" model="ir.ui.view">
+        <field name="name">hopital.consultation.form</field>
+        <field name="model">hopital.consultation</field>
+        <field name="arch" type="xml">
+            <form string="Détail consultation">
+                <sheet>  
+                    <group>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="date"/>
+                            <field name="date_prochaine_consultation"/>
+                            <field name="patient_id"/>
+                            <field name="medecin_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <menuitem
+        id="menu_hopital_consultation"
+        name="Consultation"
+        parent="menu_hotipal_root"
+        action="hopital_consultation_action"
+        sequence="6"/>
+
+</odoo>

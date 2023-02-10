@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="hopital_medicament_action" model="ir.actions.act_window">
+        <field name="name">medicament</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hopital.medicament</field>
+        <field name="search_view_id" eval="False"/>
+        <field name="view_id" eval="False"/>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+          </p>
+        </field>
+    </record>
+    <record id="hopital_medicament_tree" model="ir.ui.view">
+        <field name="name">hopital.medicament.tree</field>
+        <field name="model">hopital.medicament</field>
+        <field name="arch" type="xml">
+            <tree string="La liste des medicaments">
+                <field name="name"/> 
+                <field name="libelle"/>
+            </tree>
+        </field>
+    </record>
+    <record id="hopital_medicament_search" model="ir.ui.view">
+        <field name="model">hopital.medicament</field>
+            <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="libelle"/>
+            </search>
+        </field>
+    </record>
+    <record id="hopital_medicament_form" model="ir.ui.view">
+        <field name="name">hopital.medicament.form</field>
+        <field name="model">hopital.medicament</field>
+        <field name="arch" type="xml">
+            <form string="Détail des medicaments">
+                <sheet>  
+                    <group>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="libelle"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <menuitem
+        id="menu_hopital_medicament"
+        name="Medicament"
+        parent="menu_hotipal_root"
+        action="hopital_medicament_action"
+        sequence="7"/>
+</odoo>
